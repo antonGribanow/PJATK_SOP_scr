@@ -1,0 +1,27 @@
+#Napisz skrypt, który wypisze nazwy tych katalowow z kataloguu bierzacego ktore zawieraja jednoczesnie conajniej 2 pliki do odczytu i co najmniej 3 pliki wykonywalne.
+
+for KATALOG in * ; do
+   if [ -d $KATALOG ] ; then
+     cd $KATALOG 
+     LR=0
+     LX=0
+     for PLIK in * ; do
+     if [ -f $PLIK ] ; then
+       if [ -x $PLIK ] ; then
+         let LX++
+       fi
+       if [ -r $PLIK ] ; then
+         let LR++
+       fi
+     fi
+    done
+    if [ $LR -gt 1 -a $LX -gt 2 ] ; then
+     echo "Katalog $KATALOG zawiera minimum dwa pliki do odczytu 
+i trzy pliki wykonywalne"
+    fi
+   cd .. 
+   fi
+
+done
+
+
