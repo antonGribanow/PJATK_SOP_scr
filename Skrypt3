@@ -1,4 +1,4 @@
-#Napisz skrypt, który wypisze nazwy tych katalowow z kataloguu bierzacego ktore zawieraja jednoczesnie conajniej 2 pliki do odczytu i co najmniej 3 pliki wykonywalne.
+#!/bin/bash
 
 for KATALOG in * ; do
    if [ -d $KATALOG ] ; then
